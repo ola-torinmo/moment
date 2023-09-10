@@ -3,7 +3,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+// const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 
 module.exports = function(_env, argv) {
@@ -33,13 +35,10 @@ module.exports = function(_env, argv) {
                 }
               }
             },
-                    {
-                      test: /\.css$/,
-                      use: [
-                        isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-                        "css-loader"
-                      ]
-                    },
+            {
+              test: /.s?css$/,
+              use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+            },
                             {
                               test: /\.(png|jpg|jpeg|gif)$/i,
                               use: {
@@ -101,7 +100,9 @@ module.exports = function(_env, argv) {
                                 warnings: false
                               }
                             }),
-                            new OptimizeCssAssetsPlugin()
+                            // new OptimizeCssAssetsPlugin()
+                             `...`,
+                            new CssMinimizerPlugin(), 
                         ],
                               splitChunks: {
                                 chunks: "all",
