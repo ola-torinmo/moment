@@ -1,5 +1,5 @@
 import React from "react";
-import "./About.css"
+// import "./About.css"
 import NavbarComp from "../../NavbarComp";
 import ContactForm from "../../ContactForm";
 import JumboComp from "../../JumboComp";

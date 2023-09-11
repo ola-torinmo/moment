@@ -10,7 +10,8 @@ import ser2 from '../../Images/ser2.jpg';
 import ser3 from '../../Images/ser3.jpg';
 import ser4 from '../../Images/ser4.jpg';
 // import CoreValue from "../../CoreValue";
-import '../../style.css';
+// import '../../style.css';
+import '../../../App.css';
 import { Container,Row,Col,Image } from "react-bootstrap";
 
 

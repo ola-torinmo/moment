@@ -2,7 +2,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './style.css';
+// import './style.css';
+import '../App.css';
 
 function CoreValue (){
     return(

@@ -14,7 +14,7 @@ module.exports = function(_env, argv) {
 
   return {
     devtool: isDevelopment && "cheap-module-source-map",
-    entry: "./src/App.js",
+    entry: "./src/App.jsx", 
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "assets/js/[name].[contenthash:8].js",
@@ -36,8 +36,26 @@ module.exports = function(_env, argv) {
               }
             },
             {
-              test: /.s?css$/,
-              use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+              test: /\.css$/i,
+              use: [
+                "style-loader",
+                "css-loader",
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    postcssOptions: {
+                      plugins: [
+                        [
+                          "postcss-preset-env",
+                          {
+                            // Options
+                          },
+                        ],
+                      ],
+                    },
+                  },
+                },
+              ],
             },
                             {
                               test: /\.(png|jpg|jpeg|gif)$/i,
@@ -64,9 +82,13 @@ module.exports = function(_env, argv) {
           ]
         },
         resolve: {
-          extensions: [".js", ".jsx"]
+          extensions: [".js", ".jsx"],
+          alias: {
+            '@': path.resolve(__dirname, 'src'), // This creates an alias for 'src'
+          },
         },
             plugins: [
+              
               isProduction &&
                 new MiniCssExtractPlugin({
                   filename: "assets/css/[name].[contenthash:8].css",
@@ -78,9 +100,10 @@ module.exports = function(_env, argv) {
                         )
                     }),
                           new HtmlWebpackPlugin({
-                            template: path.resolve(__dirname, "public/index.html"),
+                            template: path.resolve(__dirname, "./public/index.html"),
                             inject: true
                       })
+                      
                     ].filter(Boolean),
                         optimization: {
                           minimize: isProduction,

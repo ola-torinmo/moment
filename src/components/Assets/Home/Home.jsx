@@ -10,7 +10,7 @@ import Footer from "../../Footer";
 import jum1C from '../../Images/jum1C.jpg'; 
 import pic6ac from '../../Images/pic6ac.jpg'; // Tell webpack this JS file uses this image
 import pic4Cr from '../../Images/pic4Cr.jpg'; // Tell webpack this JS file uses this image
-import "./Home.css"
+// import "./Home.css"
 
 
 function Home(){
