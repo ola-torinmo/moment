@@ -123,6 +123,7 @@ module.exports = function(_env, argv) {
                                 warnings: false
                               }
                             }),
+                          
                             // new OptimizeCssAssetsPlugin()
                              `...`,
                             new CssMinimizerPlugin(), 

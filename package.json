@@ -78,7 +78,6 @@
     "prettier": "^3.0.3",
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
